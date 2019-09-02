@@ -33,3 +33,31 @@ func FindNum(arr []int){
 	}
 	fmt.Println(res3,res3^res)
 }
+
+
+/*
+给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
+你可以假设数组是非空的，并且给定的数组总是存在众数。
+输入: [2,2,1,1,1,2,2]
+输出: 2
+ */
+/*
+1.构建map，每次遍历的时候比较次数是否大于n/2，如果大于就是众数
+2. 摩尔投票，每次从序列选择两个不同的数字（抵消）删除，剩下最后一个或几个相同的数字就是出现次数大于总数一半的
+ */
+func MajorityElement(nums []int) int {
+	res:=nums[0]
+	count:=1
+	for i:=1;i<len(nums);i++{
+		if count==0{
+			res=nums[i]
+		}else{
+			if res==nums[i]{
+				count++
+			}else{
+					count--
+			}
+		}
+	}
+	return res
+}

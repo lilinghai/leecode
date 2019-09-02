@@ -2,11 +2,12 @@ package main
 
 import (
 	"container/heap"
-	"learnaction/backtrack"
 	"learnaction/cache"
 	"learnaction/hash"
 	"learnaction/mysort"
 	"learnaction/tree"
+	"leecode/backtrack"
+	"leecode/bitops"
 	"log"
 	"net"
 	//"net/http"
@@ -513,14 +514,7 @@ func t(j int) (i int){
 	return 1
 }
 
-func main(){
-	//lock3()
-	//arr:=[]int{7,3,10,6,8,1,5}
-	//fmt.Println(mysort.KthLargest(arr,0,len(arr)-1,1),arr)
-	//mysort.QuickSort(arr,0,len(arr)-1)
-	//fmt.Println(arr)
-
-	//fmt.Println(arr,0,len(arr)-1,3)
+func backtrack11(){
 
 	//backtrack.Call8Queens(1)
 	//fmt.Println(backtrack.SubSet2([]int{}))
@@ -535,23 +529,6 @@ func main(){
 	//fmt.Println(runtime.NumCPU(),runtime.GOARCH)
 	//fmt.Println(t(10))
 
-	//fmt.Println("done" )
-	//2,4,6,8
-	//8,2,4,6
-	//6,8,2,4
-	//for i:=1;i<10;i++{
-	//	//fmt.Println(i,bianrysearch.Search([]int{1,2,2,2,3},i))
-	//	//bianrysearch.Search([]int{1,2,3,4,5,6},i)
-	//	//bianrysearch.Search2([]int{1,2,2,3},i)
-	//	fmt.Println(bianrysearch.Search2([]int{1,2},i))
-	//}
-	//bianrysearch.Search2([]int{1,2,2,2,2,3,4,5,6,7},2)
-	//
-	//matrix:=[][]int{[]int{1,3,5,7},[]int{10,11,16,20},[]int{23,30,34,50}}
-	//fmt.Println(bianrysearch.SearchMatrix(matrix,20))
-	//fmt.Println(bianrysearch.SearchReverseArr([]int{3,3,1,2,2,3,3,3,3}))
-	//fmt.Println(bianrysearch.SearchReverseArr2([]int{3,3,3,3,3,3,4,5,3,3,3,3},4))
-	//fmt.Println(bianrysearch.SearchReverseArr3([]int{3,3,3,3,3,3,4,5,3,3,3,3},4))
 	//3!/2=3，4！/3！=4
 	backtrack.MapConbine(map[string]int{"A":1,"B":2})//3  3！/2！
 	backtrack.MapConbine(map[string]int{"A":1,"B":3})//4  4！/3！
@@ -561,8 +538,10 @@ func main(){
 	backtrack.MapConbine(map[string]int{"A":2,"B":2})//6   4！/2！*2！
 	backtrack.MapConbine(map[string]int{"A":2,"B":3})//10  5！/3！*2！
 	backtrack.MapConbine(map[string]int{"A":2,"B":4})//15  6！/4！*2！
+}
 
-
+func main(){
+	fmt.Println(bitops.MajorityElement([]int{1,2,1,3,1,4,1}))
 }
 
 
