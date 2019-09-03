@@ -551,7 +551,9 @@ func main(){
 	//interview_go.Recover_call()
 	//fmt.Println(interview_go.RangeCall())
 	//interview_go.ProcsCall()
-	interview_go.CombineCall()
+	//interview_go.CombineCall()
+	//interview_go.SelectCall()
+	interview_go.DeferCall2()
 }
 
 

@@ -5,7 +5,7 @@ import (
 	"runtime"
 	"sync"
 )
-
+//https://juejin.im/entry/5971bed66fb9a06bb21adf15 参考
 /*
 打印后
 打印中
@@ -23,7 +23,23 @@ func Defer_call() {
 
 	panic("触发异常")
 }
+/*
 
+ */
+func DeferCall2() {
+	a := 1
+	b := 2
+	defer calc("1", a, calc("10", a, b))
+	a = 0
+	defer calc("2", a, calc("20", a, b))
+	b = 1
+}
+
+func calc(index string, a, b int) int {
+	ret := a + b
+	fmt.Println(index, a, b, ret)
+	return ret
+}
 /*
 panic call2
 panic_call
@@ -117,7 +133,7 @@ func ProcsCall(){
 showA
 showB
 teacher showB
-
+golang中没有继承，匿名组合包含的方法升级为外部类型，方法的调用者没有发生改变。
  */
 type People struct{}
 
@@ -143,6 +159,22 @@ func CombineCall(){
 	t.ShowB()
 }
 
-
+/*
+非阻塞channel，同一个协程可以写入和读出
+select条件都符合的情况下，随机匹配一个
+ */
+func SelectCall(){
+	runtime.GOMAXPROCS(1)
+	int_chan := make(chan int, 1)
+	string_chan := make(chan string, 1)
+	int_chan <- 1
+	string_chan <- "hello"
+	select {
+	case value := <-int_chan:
+		fmt.Println(value)
+	case value := <-string_chan:
+		panic(value)
+	}
+}
 
 
