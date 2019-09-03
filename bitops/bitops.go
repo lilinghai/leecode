@@ -49,15 +49,81 @@ func MajorityElement(nums []int) int {
 	res:=nums[0]
 	count:=1
 	for i:=1;i<len(nums);i++{
+		fmt.Println(res,nums[i],count)
 		if count==0{
 			res=nums[i]
+			count=1
 		}else{
 			if res==nums[i]{
 				count++
 			}else{
-					count--
+				count--
 			}
 		}
 	}
 	return res
 }
+
+/*
+给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
+说明：解集不能包含重复的子集。
+输入: nums = [1,2,3]
+输出:
+[
+  [3],
+  [1],
+  [2],
+  [1,2,3],
+  [1,3],
+  [2,3],
+  [1,2],
+  []
+]
+
+ */
+/*
+1.回溯，如何剪枝
+2.2^len(nums)个结果，000，001，……，111，比较每一位，如果为1则选中数组对应的位置的元素
+ */
+func Subsets(nums []int) [][]int {
+	var res [][]int
+	count:=1<<uint(len(nums))
+	for i:=0;i<count;i++{
+		var arr[]int
+		for j:=0;j<len(nums);j++{
+			if i&(1<<uint(j))!=0{
+				arr=append(arr,nums[j])
+			}
+		}
+		res=append(res,arr)
+	}
+	return res
+}
+
+/*
+所有 DNA 由一系列缩写为 A，C，G 和 T 的核苷酸组成，例如：“ACGAATTCCG”。在研究 DNA 时，识别 DNA 中的重复序列有时会对研究非常有帮助。
+编写一个函数来查找 DNA 分子中所有出现超过一次的10个字母长的序列（子串）。
+输入: s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
+输出: ["AAAAACCCCC", "CCCCCAAAAA"]
+ */
+/*
+1.map记录连续长度为10的子串对应出现的次数
+2.
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

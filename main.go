@@ -8,6 +8,7 @@ import (
 	"learnaction/tree"
 	"leecode/backtrack"
 	"leecode/bitops"
+	"leecode/interview_go"
 	"log"
 	"net"
 	//"net/http"
@@ -540,8 +541,17 @@ func backtrack11(){
 	backtrack.MapConbine(map[string]int{"A":2,"B":4})//15  6！/4！*2！
 }
 
+func bitopst(){
+	fmt.Println(bitops.MajorityElement([]int{10,9,9,9,10}))
+	fmt.Println(bitops.Subsets([]int{}))
+}
 func main(){
-	fmt.Println(bitops.MajorityElement([]int{1,2,1,3,1,4,1}))
+	//interview_go.Defer_call()
+	//interview_go.Panic_call()
+	//interview_go.Recover_call()
+	//fmt.Println(interview_go.RangeCall())
+	//interview_go.ProcsCall()
+	interview_go.CombineCall()
 }
 
 
